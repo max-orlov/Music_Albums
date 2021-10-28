@@ -1,0 +1,174 @@
+body {
+    background-image: url("img/background_image.jpg");
+}
+
+.popup-fade {
+    display: none;
+}
+.popup-fade:before {
+    content: '';
+    background: #000;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: 9999;
+}
+
+.popup {
+    position: fixed;
+    left: 45%;
+    padding: 20px;
+    width: 360px;
+    margin-left: -200px;
+    background: #fff;
+    border: 1px solid orange;
+    border-radius: 4px;
+    z-index: 99999;
+    opacity: 1;
+}
+
+.tagSpan:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.container {
+    margin: 0px auto;
+}
+
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 750px;
+    }
+}
+@media (max-width: 767px) {
+    .container {
+        max-width: none;
+    }
+}
+
+.newAlbum, .newTag{
+    background-image: url("img/guitar.jpg");
+    background-size: cover;
+    width: 50%;
+    min-width: min-content;
+    height: 50%;
+    position: absolute;
+    box-shadow: 0 0 20px darkorange;
+    overflow: hidden;
+    opacity: 1;
+    z-index: 99999;
+}
+
+.controlBlock {
+    float: left;
+    width: 25%;
+    padding: 10px;
+    box-shadow: 0 0 10px darkorange inset;
+    overflow: hidden;
+}
+
+.inputBlock {
+    width: 50%;
+    border-radius: 10px;
+    box-shadow:0 0 5px darkorange;
+}
+
+.button {
+    border-radius: 10px;
+    box-shadow:0 0 5px darkorange;
+}
+
+.albumsBlock {
+    width: 70%;
+    margin-left: auto;
+}
+
+.album {
+    width: 230px;
+    display: inline-grid;
+    margin-right: 5px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px white;
+}
+
+.album:hover {
+    box-shadow: 0 0 15px orangered;
+}
+
+.info {
+    position: relative;
+    background-color: black;
+    padding: 5px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.text {
+    color: coral;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.album_name, .release_year, .band_name, .tags {
+    color: papayawhip;
+}
+
+.exit {
+    border-radius: 10px;
+    box-shadow:0 0 30px red;
+}
+
+.selectedOrder {
+    box-shadow: 0 0 30px yellow;
+}
+
+.hiddenElement {
+    display: none;
+}
+
+.rating-area {
+    overflow: hidden;
+    width: border-box;
+    margin: 0 auto;
+}
+.rating-area > input {
+    display: none;
+}
+.rating-area > label {
+    width: 42px;
+    padding: 0;
+    cursor: pointer;
+    font-size: 32px;
+    line-height: 32px;
+    color: lightgrey;
+    text-shadow: 1px 1px #bbb;
+}
+.rating-area > label:before {
+    content: '★';
+}
+
+.rating-result {
+    width: border-box;
+    margin: 0 auto;
+    text-align: center;
+}
+.rating-result span {
+    padding: 0;
+    font-size: 32px;
+    margin: 0 3px;
+    line-height: 1;
+    color: lightgrey;
+    text-shadow: 1px 1px #bbb;
+}
+.rating-result > span:before {
+    content: '★';
+}
+.rating-result > span.active{
+    color: gold;
+    text-shadow: 1px 1px #c60;
+}

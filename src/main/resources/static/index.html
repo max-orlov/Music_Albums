@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="javascript/Jquery_cookie.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <title>Rock Albums</title>
+</head>
+<body>
+
+<h3 id="hello" class="hiddenElement" style="color: white"> Hello, <span id="user"></span>!</h3>
+
+<div class="container">
+    <div class="popup-fade">
+        <div class="newAlbum popup hiddenElement">
+            <form>
+                <input type="text" class="inputBlock" id="album_name"
+                       placeholder="Album Name"><br/>
+                <input type="text" class="inputBlock" id="release_year"
+                       placeholder="Release Year"><br/>
+                <input type="text" class="inputBlock" id="band_name"
+                       placeholder="Band"><br/>
+                <input type="file" class="inputBlock" name="file"
+                       id="uploadFile"><br/>
+                <input type="button" class="button" id="addAlbum"
+                       value="Click to Save">
+            </form>
+            <br/><br/>
+            <form>
+                <input type="button" value=" Close " class="exit"
+                       id="closeNewAlbumWindow">
+            </form>
+        </div>
+        <div class="newTag popup hiddenElement">
+            <form>
+                <input type="text" class="inputBlock" id="newTagName"
+                       placeholder="New Tag">
+                <input type="button" class="button" id="addNewTag"
+                       value="Add tag">
+                <br/><br/>
+                <span class="text" style="font-size: large">Choose tag:</span>
+                <div class="tagList">
+                    <p class="tagP"><span class="text tagSpan"></span></p>
+                </div>
+                <input type="button" class="exit" id="closeTagBlock"
+                       value="Close">
+            </form>
+        </div>
+    </div>
+    <div class="controlBlock">
+        <form id="loginForm">
+            <input type='text' id='userName' placeholder="User Name"/>
+            <input type='password' id='password' placeholder="Password"/>
+            <input type="button" class="exit" id='login' value="Login"/>
+        </form>
+        <form id="logoutForm" class="hiddenElement">
+            <input type="button" value="Logout" class="exit" id="logout">
+        </form>
+        <br/><br/>
+        <form>
+            <input type="button" class="button hiddenElement" id="openNewAlbumWindow"
+                   value="Add new album">
+        </form>
+        <br/><br/>
+        <form>
+            <p class="text">Select album by band</p>
+            <input type="text" class="inputBlock" id="select_by_band_name"
+                   placeholder="Band">
+            <br/>
+            <p class="text">Select album by year</p>
+            <input type="text" class="inputBlock" id="select_by_release_year"
+                   placeholder="Release Year">
+        </form>
+        <div class="orderBlock">
+            <form>
+                <p class="text">Sort by: </p>
+                <input type="button" class="button" id="year" value="Year">
+                <input type="button" class="button" id="band" value="Band">
+                <input type="button" class="button" id="album"
+                       value="Album Name">
+                <input type="button" class="button selectedOrder" id="rating" value="Rating">
+                <br/><br/>
+                <input type="button" class="button" id="select_all"
+                       value="Reset filters">
+                <br/><br/><br/><br/>
+            </form>
+        </div>
+    </div>
+
+    <div class="albumsBlock">
+        <div class="album hiddenElement" id="albumDiv">
+            <p class="album_id hiddenElement"></p>
+            <img class='album_image' height='100%' width='100%'>
+            <div class="rating-result">
+                <span id="1_star"></span>
+                <span id="2_star"></span>
+                <span id="3_star"></span>
+                <span id="4_star"></span>
+                <span id="5_star"></span>
+            </div>
+            <div class="info">
+                <div class="rating-area">
+                    <p><span class="text">Rate</span></p>
+                    <input type="radio" id="star-1" name="rating" value="1">
+                    <label for="star-1" title="1"></label>
+                    <input type="radio" id="star-2" name="rating" value="2">
+                    <label for="star-2" title="2"></label>
+                    <input type="radio" id="star-3" name="rating" value="3">
+                    <label for="star-3" title="3"></label>
+                    <input type="radio" id="star-4" name="rating" value="4">
+                    <label for="star-4" title="4"></label>
+                    <input type="radio" id="star-5" name="rating" value="5">
+                    <label for="star-5" title="5"></label>
+                </div>
+                <p class="album_name"></p>
+                <p class="release_year"></p>
+                <p class="band_name"></p>
+                <p class="tags"></p>
+                <form>
+                    <input type="button" class="inputBlock"
+                           id="openNewTagWindow"
+                           value="Add new tag">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="javascript/Render.js"></script>
+<script src="javascript/EventHandler.js"></script>
+<script>getAllAlbums()</script>
+
+</body>
+</html>
