@@ -1,0 +1,42 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd ">
+
+    <changeSet id="create_users_table" author="Max_Orlov">
+        <createTable tableName="users">
+            <column name="user_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="user_name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+            <column name="user_password" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="user_role" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="fill_users_table" author="Max_orlov">
+        <insert tableName="users">
+            <column name="user_name" value="admin"/>
+            <column name="user_password" value="$2a$12$sz7UTS45pjZ79DxbAa3h8u4JsX9uyXpq2uqjJgI5uBXW.IPHGkW9C"/>
+            <column name="user_role" value="ADMIN"/>
+        </insert>
+
+        <insert tableName="users">
+            <column name="user_name" value="user"/>
+            <column name="user_password" value="$2a$12$ME4Vo1NjyMuZ/2TWmvLvruP1LeDdb2jUVLTiIHSmxV5ZfalmtyQjm"/>
+            <column name="user_role" value="USER"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

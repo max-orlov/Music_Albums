@@ -1,0 +1,91 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+    http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd ">
+
+    <changeSet id="create_albums_table" author="Max_Orlov">
+        <createTable tableName="albums">
+            <column name="album_id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="album_name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="release_year" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="band_id" type="bigint">
+                <constraints nullable="false" foreignKeyName="band_id" references="bands(band_id)"/>
+            </column>
+
+            <column name="current_rating" type="bigint" defaultValue="0"/>
+
+            <column name="total_rating" type="bigint" defaultValue="0"/>
+
+            <column name="rating_update_counter" type="bigint" defaultValue="0"/>
+
+            <column name="album_picture_name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="fill_albums_table" author="Max_Orlov">
+        <insert tableName="albums">
+            <column name="album_name" value="Master Of Puppets"/>
+            <column name="release_year" value="1986"/>
+            <column name="band_id" value="1"/>
+            <column name="album_picture_name" value="1.jpg"/>
+        </insert>
+
+        <insert tableName="albums">
+            <column name="album_name" value="...And Justice For All"/>
+            <column name="release_year" value="1988"/>
+            <column name="band_id" value="1"/>
+            <column name="album_picture_name" value="2.jpg"/>
+        </insert>
+
+        <insert tableName="albums">
+            <column name="album_name" value="Back In Black"/>
+            <column name="release_year" value="1980"/>
+            <column name="band_id" value="2"/>
+            <column name="album_picture_name" value="3.jpg"/>
+        </insert>
+
+        <insert tableName="albums">
+            <column name="album_name" value="Long Cold Winter"/>
+            <column name="release_year" value="1988"/>
+            <column name="band_id" value="3"/>
+            <column name="album_picture_name" value="4.jpg"/>
+        </insert>
+
+        <insert tableName="albums">
+            <column name="album_name" value="The Wall"/>
+            <column name="release_year" value="1979"/>
+            <column name="band_id" value="4"/>
+            <column name="album_picture_name" value="5.jpg"/>
+        </insert>
+
+        <insert tableName="albums">
+            <column name="album_name" value="Rammstein"/>
+            <column name="release_year" value="2019"/>
+            <column name="band_id" value="5"/>
+            <column name="album_picture_name" value="6.jpg"/>
+        </insert>
+
+        <insert tableName="albums">
+            <column name="album_name" value="Dr. Feelgood"/>
+            <column name="release_year" value="1989"/>
+            <column name="band_id" value="6"/>
+            <column name="album_picture_name" value="7.jpg"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
